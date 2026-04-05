@@ -26,18 +26,25 @@ print(f"I am - Marvin \nI am from India \nI was born in 90's");
 
 print(f"Cost of 24 mangoes with each mango costing Rs. 5 is {24 * 5} ");
 
-print(f"{456 / 8}");
+print(f"456 divided by 8 is {456 / 8}");
 
-print(f"{2 ** 10}");
+print(f"2 to the power of 10 is {2 ** 10}");
 
-print(f"{ 100 % 7}");
+print(f"Reminder when 100 divided by 7 is { 100 % 7}");
 
 
-print(f"Setion A has 120 Seats but Section A is 75% full which means the section A has {(120 * 75) / 100 } people");
+print(f"Section A has 120 Seats but Section A is 75% full which means the section A has {(120 * 75) / 100 } people");
 
-print(f"Setion B has 85 Seats but Section B is 100% full which means the section B has {(85 * 100) / 100 } people");
+print(f"Section B has 85 Seats but Section B is 100% full which means the section B has {(85 * 100) / 100 } people");
 
-print(f"Setion C has 200 Seats but Section C is 40% full which means the section C has {(200 * 40) / 100 } people");
+print(f"Section C has 200 Seats but Section C is 40% full which means the section C has {(200 * 40) / 100 } people");
 
+
+# Decimal Numbers will be printed with '/' division operator
 print(f"Total no of people in cinema is {((120 * 75) / 100) + ((85 * 100) / 100) + ((200 * 40) / 100)}");
 
+# Whole Numbers will be printed with '//' floor division operator
+print(f"Total no of people in cinema is {((120 * 75) // 100) + ((85 * 100) // 100) + ((200 * 40) // 100)}");
+
+# Whole Numbers will be printed with int inside calculation
+print(f"Total no of people in cinema is {int ((120 * 75) / 100) + int ((85 * 100) / 100) + int ((200 * 40) / 100)}");

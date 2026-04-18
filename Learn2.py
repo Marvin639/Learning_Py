@@ -120,6 +120,10 @@ desert = 120
 
 subtotal = (3 * biryani) + (2 * cold_drinks) + (1 * desert)
 
-grand_total = subtotal + GST_RATE + SERVICE_CHARGE_RATE
+GST_amount =  subtotal * GST_RATE
 
-print(grand_total)
+Service_Charge_Rate = subtotal * SERVICE_CHARGE_RATE
+
+Grand_Total = subtotal + GST_amount + Service_Charge_Rate
+
+print(Grand_Total)

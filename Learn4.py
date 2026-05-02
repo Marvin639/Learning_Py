@@ -162,57 +162,102 @@ else:
 # Ask the user for: their name, consumer number, and units consumed. Calculate the bill correctly using slabs. 
 # Add 18% GST on top. Print a formatted bill showing each slab's cost, subtotal, GST, and grand total. 
 # If units consumed is 0 or negative — print an error.
-
 GST = 18/100
 
 name = input("Enter your name : ").strip().title()
-consumer_number = int(input("Enter your dedicated electricity connecction number : "))
+consumer_number = input("Enter your dedicated electricity connection number : ").strip()
 units = int(input("Enter the amount of units consumed : "))
 
-print("Electricity Bill Statement")
-print(f"Consumer : {name}")
-print(f"Bill no : {consumer_number}")
-print(f"Units : {units}")
+TOP     = "╔═══════════════════════════════════════════════════╗"
+DIVIDER = "╠═══════════════════════════════════════════════════╣"
+BOTTOM  = "╚═══════════════════════════════════════════════════╝"
+SIDE    = "║"
+INNER_WIDTH = 48
+
+title = "Electricity Bill Statement".center(INNER_WIDTH)
+nameline = f"         {'Consumer':<10} :       {name:<15}    "
+billnoline = f"         {'Billno':<10} :       {consumer_number:<15}     "
+unitsline = f"         {'Units':<10} :       {units:<15}     "
+
+print(TOP)
+print(f"{SIDE}{title:<{INNER_WIDTH}}{SIDE}")
+print(DIVIDER)
+print(f"{SIDE}{nameline:<{INNER_WIDTH}}{SIDE}")
+print(f"{SIDE}{billnoline:<{INNER_WIDTH}}{SIDE}")
+print(f"{SIDE}{unitsline:<{INNER_WIDTH}}{SIDE}")
+print(DIVIDER)
+
+slab1line = f"Slab1 (0 - 100 units @ Rs.3.50 ) :{100 * 3.50} "
+slab2line = f"Slab2 (100 - 200 units @ Rs.5.00 ) :{100 * 5.00} "
+slab3line = f"Slab3 (200 - 300 units @ Rs.7.50 ) :{100 * 7.50}"
+remainedunits = "Cost of remaining units is "
 
 if units <= 0:
-    print("Error or no units consumed")
+    print(f"{SIDE}{'    Error or no units consumed':<{INNER_WIDTH}}{SIDE}")
+    print(BOTTOM)
 elif 0 <= units <= 100 :
-    print(f"Cost of first 100 units is {units * 3.50}")
+    print(f"{SIDE}   {slab1line:<{INNER_WIDTH}}{SIDE}")
+    print(DIVIDER)
     sub_total = units * 3.50
-    print(f"sub_total is {sub_total}")
+    sub_total_c = f"sub_total is : {sub_total}"
+    print(f"{SIDE}    {sub_total_c:<{INNER_WIDTH}}{SIDE}")
     gst_added = sub_total * (GST)
-    print(f"GST added is {gst_added}")
+    gst_added_c = f"amount of gst added is : {gst_added}"
+    print(f"{SIDE}    {gst_added_c:<{INNER_WIDTH}}{SIDE}")
+    print(DIVIDER)
     grand_total = sub_total + gst_added
-    print(f"Final bill amount is {grand_total}")
+    grand_total_c = f"Final bill amount is : {grand_total}"
+    print(f"{SIDE}    {grand_total_c:<{INNER_WIDTH}}{SIDE}")
+    print(BOTTOM)
+
 elif 100 < units <=200 :
-    print(f"Cost of first 100 units is {100 * 3.50}")
-    print(f"Cost of remaining units is {(units - 100) * 5.00}")
+    print(f"{SIDE}   {slab1line:<{INNER_WIDTH}}{SIDE}")
+    remainedunits = f"remaining units amount is : {(units - 100) * 5.00}"
+    print(f"{SIDE}   {remainedunits:<{INNER_WIDTH}}{SIDE}")
+    print(DIVIDER)
     sub_total = (100 * 3.50) + (units - 100) * 5.00
-    print(f"sub_total is {sub_total}")
+    sub_total_c = f"sub_total is : {sub_total}"
+    print(f"{SIDE}   {sub_total_c:<{INNER_WIDTH}}{SIDE}")
     gst_added = sub_total * (GST)
-    print(f"GST added is {gst_added}")
+    gst_added_c = f"amount of gst added is : {gst_added}"
+    print(f"{SIDE}   {gst_added_c:<{INNER_WIDTH}}{SIDE}")
+    print(DIVIDER)
     grand_total = sub_total + gst_added
-    print(f"Final bill amount is {grand_total}")
+    grand_total_c = f"Final bill amount is : {grand_total}"
+    print(f"{SIDE}   {grand_total_c:<{INNER_WIDTH}}{SIDE}")
+    print(BOTTOM)
 elif 200 < units <= 300 :
-    print(f"Cost of first 100 units is {100 * 3.50}")
-    print(f"Cost of second 100 units is {100 * 5.00}")
-    print(f"Cost of remaining units is {(units - 200) * 7.50}")
+    print(f"{SIDE}   {slab1line:<{INNER_WIDTH}}{SIDE}")
+    print(f"{SIDE}   {slab2line:<{INNER_WIDTH}}{SIDE}")
+    remainedunits = f"remaining units amount is : {(units - 200) * 7.50}"
+    print(f"{SIDE}   {remainedunits:<{INNER_WIDTH}}{SIDE}")
+    print(DIVIDER)
     sub_total = (100 * 3.50) + (100 * 5.00) + (units - 200) * 7.50
-    print(f"sub_total is {sub_total}")
+    sub_total_c = f"sub_total is : {sub_total}"
+    print(f"{SIDE}   {sub_total_c:<{INNER_WIDTH}}{SIDE}")
     gst_added = sub_total * (GST)
-    print(f"GST added is {gst_added}")
-
+    gst_added_c = f"amount of gst added is : {gst_added}"
+    print(f"{SIDE}   {gst_added_c:<{INNER_WIDTH}}{SIDE}")
+    print(DIVIDER)
     grand_total = sub_total + gst_added
-    print(f"Final bill amount is {grand_total}")
+    grand_total_c = f"Final bill amount is : {grand_total}"
+    print(f"{SIDE}   {grand_total_c:<{INNER_WIDTH}}{SIDE}")
+    print(BOTTOM)
 else :
-    print(f"Cost of first 100 units is {100 * 3.50}")
-    print(f"Cost of second 100 units is {100 * 5.00}")
-    print(f"Cost of second 100 units is {100 * 7.50}")
-    print(f"Cost of remaining units is {(units - 300) * 10.00}")
+    print(f"{SIDE}   {slab1line:<{INNER_WIDTH}}{SIDE}")
+    print(f"{SIDE}   {slab2line:<{INNER_WIDTH}}{SIDE}")
+    print(f"{SIDE}   {slab3line:<{INNER_WIDTH}}{SIDE}")
+    remainedunits = f"remainedunits : {(units - 300) * 10.00}"
+    print(f"{SIDE}   {remainedunits:<{INNER_WIDTH}}{SIDE}")
+    print(DIVIDER)
     sub_total = (100 * 3.50) + (100 * 5.00) + (100 * 7.50) + (units - 300) * 10.00
-    print(f"sub_total is {sub_total}")
+    sub_total_c = f"sub_total is : {sub_total}"
+    print(f"{SIDE}   {sub_total_c:<{INNER_WIDTH}}{SIDE}")
     gst_added = sub_total * (GST)
-    print(f"GST added is {gst_added}")
+    gst_added_c = f"amount of gst added is : {gst_added}"
+    print(f"{SIDE}   {gst_added_c:<{INNER_WIDTH}}{SIDE}")
+    print(DIVIDER)
     grand_total = sub_total + gst_added
-    print(f"Final bill amount is {grand_total}")
-
+    grand_total_c = f"Final bill amount is : {grand_total}"
+    print(f"{SIDE}   {grand_total_c:<{INNER_WIDTH}}{SIDE}")
+    print(BOTTOM)

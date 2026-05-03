@@ -19,3 +19,16 @@ print(f"{SIDE}{line:<{INNER_WIDTH}}{SIDE}")
 # Try 4 — what happens if your content is longer than INNER_WIDTH?
 long_text = "This is a very long sentence that exceeds the width"
 print(f"{SIDE}{long_text:<{INNER_WIDTH}}{SIDE}")
+
+num = 3
+row = 1
+
+while row <= num:
+    col = 1
+
+    while col <=row:
+        print(col, end = " ")
+        col += 1
+
+    print()
+    row += 1
